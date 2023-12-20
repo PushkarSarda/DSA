@@ -1,0 +1,59 @@
+Using Smaller Problems and their solutions and learning to solve Bigger Problems is the core concept behind Dynamic Programing!
+
+Properties of Dynamic Programing:-
+    i.  Optimal Substructure: Any problem whose Recurrence Relation can be written is said to have this
+                              property.
+    ii. Overlaping Subproblem: If Subproblems reapeat, then the property is said to be followed.
+EXAMPLE:
+Fibonacci Numbers: 
+f(4)=f(3)+f(2)
+f(3)=f(2)+f(1)
+f(2)=f(1)+f(0)
+Therefore, Recurrence Relation: f(n)=f(n-1)+f(n-2)!!!
+So, 
+    i.  No need to compute twice
+    ii. Save time: on the basis of extra memory!
+
+Ways to Handle Overlaping Subproblem:
+    i.  Memoization(Top-Down):
+        -A lookup table is maintained and checked before computation of any state.
+        -Recursion is involved.
+        Ex:
+            int dp[200]={-1};
+            int Fibo(int n)
+            {
+                if(n==0|| n==1)
+                    return n;
+                if(dp[n]!=-1)
+                    return dp[n];
+                int ans= dp[n-1]+dp[n-2];
+                dp[n]=ans;
+                return dp[n];
+            }
+    ii. Tabulation(Bottom-Up):
+        -Sollution is built from base.
+        -Iterative process.
+        Ex:
+            int n;
+            cin>>n;
+            vi dp(n+1);// vi is a macro!!--->vector of int!!
+            dp[0]=0;
+            dp[1]=1;
+            dp[2]=1;
+            for(int i=2; i<n; i++)
+            {
+                dp[i]=dp[i-1]+dp[i-2];
+            }
+            cout<<dp[n];
+
+Also NOTE:
+    see... W/O DP Time Complexity----> O(2^n)
+           With DP Time Complexity---> O(n)!!!
+
+KEY POINTS:
+    - Minimization and Maximization problems where the solution is generated exhaustively are generally solved using DP!!
+    - Find Number of Ways is also a very popular DP problem!
+    - Any question where recurrance relation is formable DP can be used!
+
+
+    
